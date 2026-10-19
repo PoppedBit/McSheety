@@ -147,3 +147,9 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# McSheety
+cdk.out
+*.tsbuildinfo
+# Excel lock files and any real workbook content (synthetic fixtures are generated into out/)
+~$*.xlsx

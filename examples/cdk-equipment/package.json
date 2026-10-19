@@ -1,0 +1,21 @@
+{
+  "name": "cdk-equipment",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Reference stack deploying the McSheety API for the Equipment sample. Synth only in CI; deploy manually.",
+  "type": "module",
+  "scripts": {
+    "cdk": "cdk",
+    "synth": "cdk synth --quiet"
+  },
+  "dependencies": {
+    "@mcsheety/aws-cdk": "workspace:*",
+    "aws-cdk-lib": "^2.273.0",
+    "constructs": "^10.8.1"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.1145.0",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15"
+  }
+}

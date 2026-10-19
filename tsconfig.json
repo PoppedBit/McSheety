@@ -1,0 +1,20 @@
+{
+  // Whole-repo typecheck (sources + tests + tooling). Package builds use packages/*/tsconfig.build.json.
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@mcsheety/core/testing": ["./packages/core/src/testing.ts"],
+      "@mcsheety/*": ["./packages/*/src/index.ts"]
+    }
+  },
+  "include": [
+    "packages/*/src",
+    "fixtures",
+    "tools/*/src",
+    "examples/local-api/src",
+    "examples/cdk-equipment/bin",
+    "vitest.config.ts"
+  ],
+  "exclude": ["**/dist", "**/node_modules"]
+}

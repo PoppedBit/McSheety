@@ -1,0 +1,6 @@
+{
+  "app": "tsx --env-file-if-exists=../../.env bin/app.ts",
+  "context": {
+    "@aws-cdk/core:checkSecretUsage": true
+  }
+}

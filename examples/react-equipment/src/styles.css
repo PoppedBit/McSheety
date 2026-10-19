@@ -1,0 +1,218 @@
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1d1d1b;
+  --muted: #6b6b66;
+  --border: #deded9;
+  --accent: #1f6f50;
+  --accent-text: #ffffff;
+  --danger: #b3261e;
+  --warning-bg: #fff6dc;
+  --warning-border: #e8c766;
+  --error-bg: #fdecea;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615;
+    --surface: #1f1f1d;
+    --text: #ececea;
+    --muted: #a3a39e;
+    --border: #3a3a37;
+    --accent: #4fb388;
+    --accent-text: #0d1f17;
+    --danger: #f2827a;
+    --warning-bg: #2f2812;
+    --warning-border: #7a6420;
+    --error-bg: #3a1a18;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 8px 0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+button.link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  padding: 2px 6px;
+}
+
+button.danger {
+  color: var(--danger);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+select,
+input {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.user,
+.toolbar,
+.tabs,
+.demo-users,
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toolbar {
+  margin: 16px 0 8px;
+}
+
+.toolbar h2 {
+  margin-right: auto;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+.card,
+.record-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.record-form {
+  display: grid;
+  gap: 10px;
+  max-width: 480px;
+}
+
+.record-form label {
+  display: grid;
+  gap: 4px;
+}
+
+.record-form h3 {
+  margin: 0;
+}
+
+.warning {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+
+.error {
+  background: var(--error-bg);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+.field-error {
+  color: var(--danger);
+}
+
+.muted,
+.permissions {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  font-weight: 600;
+}
+
+tr.has-issues td {
+  background: var(--warning-bg);
+}
+
+.row-actions {
+  text-align: right;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+}

@@ -1,0 +1,9 @@
+dist
+out
+cdk.out
+coverage
+pnpm-lock.yaml
+implementation.md
+cdk.out
+.env
+*.xlsx

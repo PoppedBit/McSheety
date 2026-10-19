@@ -1,0 +1,24 @@
+{
+  "name": "@mcsheety/auth-msal",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety identity normalization and Microsoft Entra On-Behalf-Of token exchange.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@azure/msal-node": "^7.1.0",
+    "@mcsheety/core": "workspace:*",
+    "jose": "^6.2.12"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "$comment": "Synthetic McSheety fixture. Source of truth for Equipment.xlsx (pnpm fixtures:build) and for in-memory tests. No real people or business data.",
+  "file": "Equipment.xlsx",
+  "sheets": [
+    {
+      "sheet": "Equipment",
+      "table": "tbl_Equipment",
+      "columns": [
+        "id",
+        "name",
+        "status",
+        "locationId",
+        "departmentId",
+        "purchasePrice",
+        "createdAt"
+      ],
+      "rows": [
+        ["eq-001", "Pump A", "Active", "loc-1", "dept-ops", 123.5, "2026-10-16T14:05:00Z"],
+        ["eq-002", "Valve B", "Inactive", "loc-2", "dept-eng", 80, "2026-10-16T14:10:00Z"],
+        ["eq-003", "Compressor C", "Active", "loc-1", "dept-ops", 2450, "2026-10-16T15:00:00Z"],
+        ["eq-004", "Generator D", "Active", "loc-3", "dept-eng", 9800, "2026-10-16T15:30:00Z"],
+        ["eq-005", "Forklift E", "Active", "loc-2", "dept-ops", 15200, "2026-10-16T16:00:00Z"],
+        ["eq-006", "Laptop Cart F", "Inactive", "loc-3", "dept-fin", null, "2026-10-16T16:20:00Z"],
+        [
+          "eq-007",
+          "Pressure Gauge G",
+          "Active",
+          "loc-1",
+          "dept-eng",
+          45.25,
+          "2026-10-16T16:45:00Z"
+        ],
+        ["eq-008", "Scanner H", "Active", "loc-3", "dept-fin", 310, "2026-10-16T17:00:00Z"]
+      ]
+    },
+    {
+      "sheet": "Locations",
+      "table": "tbl_Locations",
+      "columns": ["id", "name", "site"],
+      "rows": [
+        ["loc-1", "North Plant", "Site A"],
+        ["loc-2", "South Warehouse", "Site A"],
+        ["loc-3", "Head Office", null]
+      ]
+    },
+    {
+      "sheet": "_mcsheety",
+      "table": "mc_config",
+      "columns": ["key", "value"],
+      "rows": [
+        ["formatVersion", "1"],
+        ["schemaVersion", "1"],
+        ["policyVersion", "1"],
+        ["applicationId", "mcsheety-equipment-fixture"]
+      ]
+    },
+    {
+      "sheet": "_schema",
+      "table": "mc_schema",
+      "columns": ["table", "column", "type", "required", "default", "unique", "options"],
+      "rows": [
+        ["Equipment", "id", "string", true, "generated", true, null],
+        ["Equipment", "name", "string", true, null, false, null],
+        ["Equipment", "status", "enum", true, "Active", false, "Active|Inactive"],
+        ["Equipment", "locationId", "string", true, null, false, null],
+        ["Equipment", "departmentId", "string", true, "claim:departmentId", false, null],
+        ["Equipment", "purchasePrice", "number", false, null, false, "min=0"],
+        ["Equipment", "createdAt", "datetime", true, "now", false, null],
+        ["Locations", "id", "string", true, "generated", true, null],
+        ["Locations", "name", "string", true, null, true, null],
+        ["Locations", "site", "string", false, null, false, null]
+      ]
+    },
+    {
+      "sheet": "_permissions",
+      "table": "mc_permissions",
+      "columns": ["table", "role", "read", "create", "update", "delete"],
+      "rows": [
+        ["Equipment", "viewer", true, false, false, false],
+        ["Equipment", "editor", true, true, true, false],
+        ["Equipment", "manager", true, true, true, false],
+        ["Equipment", "admin", true, true, true, true],
+        ["Locations", "viewer", true, false, false, false],
+        ["Locations", "editor", true, false, false, false],
+        ["Locations", "manager", true, true, true, false],
+        ["Locations", "admin", true, true, true, true]
+      ]
+    },
+    {
+      "sheet": "_columns",
+      "table": "mc_columns",
+      "columns": ["table", "column", "readRoles", "writeRoles"],
+      "rows": [
+        ["Equipment", "id", "*", null],
+        ["Equipment", "name", "*", "editor,manager,admin"],
+        ["Equipment", "status", "*", "editor,manager,admin"],
+        ["Equipment", "locationId", "*", "editor,manager,admin"],
+        ["Equipment", "departmentId", "*", "manager,admin"],
+        ["Equipment", "purchasePrice", "manager,admin", "admin"],
+        ["Equipment", "createdAt", "*", null],
+        ["Locations", "id", "*", null],
+        ["Locations", "name", "*", "manager,admin"],
+        ["Locations", "site", "*", "manager,admin"]
+      ]
+    },
+    {
+      "sheet": "_rowPolicies",
+      "table": "mc_rowPolicies",
+      "columns": ["table", "action", "role", "column", "operator", "claim"],
+      "rows": [
+        ["Equipment", "read", "editor", "departmentId", "equals", "departmentId"],
+        ["Equipment", "create", "editor", "departmentId", "equals", "departmentId"],
+        ["Equipment", "update", "editor", "departmentId", "equals", "departmentId"],
+        ["Equipment", "delete", "admin", null, "allowAll", null]
+      ]
+    }
+  ]
+}

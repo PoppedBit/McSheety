@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format:check
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm --filter react-equipment build
+      - name: cdk synth (placeholder values, no AWS credentials)
+        run: pnpm --filter cdk-equipment synth
+        env:
+          CDK_DEFAULT_ACCOUNT: '123456789012'
+          CDK_DEFAULT_REGION: us-east-1
+          MCSHEETY_TENANT_ID: 11111111-1111-1111-1111-111111111111
+          MCSHEETY_API_CLIENT_ID: 22222222-2222-2222-2222-222222222222
+          MCSHEETY_CREDENTIAL_SECRET_ARN: arn:aws:secretsmanager:us-east-1:123456789012:secret:placeholder-AbCdEf
+          MCSHEETY_DRIVE_ID: placeholder-drive
+          MCSHEETY_ITEM_ID: placeholder-item
+      # No live Entra/Graph credentials in CI. Live verification is manual (notes.md §2).

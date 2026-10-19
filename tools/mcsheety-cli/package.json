@@ -1,0 +1,21 @@
+{
+  "name": "mcsheety-cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety command-line tools (validate a workbook's metadata and data).",
+  "type": "module",
+  "bin": {
+    "mcsheety": "./dist/cli.js"
+  },
+  "scripts": {
+    "validate": "tsx src/cli.ts validate",
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@mcsheety/core": "workspace:*",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}

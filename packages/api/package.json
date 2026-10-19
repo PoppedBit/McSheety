@@ -1,0 +1,33 @@
+{
+  "name": "@mcsheety/api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety REST API handlers for AWS Lambda.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./lambda": {
+      "types": "./dist/lambda.d.ts",
+      "import": "./dist/lambda.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.1152.0",
+    "@mcsheety/adapter-graph": "workspace:*",
+    "@mcsheety/auth-msal": "workspace:*",
+    "@mcsheety/core": "workspace:*",
+    "jose": "^6.2.12"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.164"
+  }
+}

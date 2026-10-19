@@ -1,0 +1,20 @@
+{
+  "name": "local-api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local McSheety API server: demo mode (in-memory, no Entra) or entra mode (real OBO + Graph).",
+  "type": "module",
+  "scripts": {
+    "demo": "MODE=demo tsx src/server.ts",
+    "entra": "MODE=entra tsx --env-file=../../.env src/server.ts"
+  },
+  "dependencies": {
+    "@mcsheety/adapter-graph": "workspace:*",
+    "@mcsheety/api": "workspace:*",
+    "@mcsheety/auth-msal": "workspace:*",
+    "@mcsheety/core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15"
+  }
+}

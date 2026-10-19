@@ -1,0 +1,22 @@
+{
+  "name": "@mcsheety/adapter-graph",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety Microsoft Graph workbook adapter.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@mcsheety/core": "workspace:*"
+  }
+}

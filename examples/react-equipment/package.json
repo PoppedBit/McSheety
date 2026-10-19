@@ -1,0 +1,26 @@
+{
+  "name": "react-equipment",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety sample: Entra (MSAL) sign-in and role-aware CRUD over an Excel-backed Equipment table.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@azure/msal-browser": "^5.25.1",
+    "@mcsheety/client": "workspace:*",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@mcsheety/core": "workspace:*",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4"
+  }
+}

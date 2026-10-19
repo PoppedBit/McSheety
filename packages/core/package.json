@@ -1,0 +1,23 @@
+{
+  "name": "@mcsheety/core",
+  "version": "0.0.0",
+  "private": true,
+  "description": "McSheety domain model, workbook metadata parser, validators and policy engine.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "import": "./dist/testing.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
